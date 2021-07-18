@@ -16,9 +16,11 @@ import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
 import com.dicoding.courseschedule.paging.CourseAdapter
 import com.dicoding.courseschedule.paging.CourseViewHolder
+import com.dicoding.courseschedule.ui.add.AddActivity
 import com.dicoding.courseschedule.ui.detail.DetailActivity
 import com.dicoding.courseschedule.ui.setting.SettingsActivity
 import com.dicoding.courseschedule.util.SortType
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListActivity : AppCompatActivity() {
 
@@ -27,6 +29,9 @@ class ListActivity : AppCompatActivity() {
     private val courseAdapter: CourseAdapter by lazy {
         CourseAdapter(::onCourseClick)
     }
+
+    //components
+    private lateinit var fabAddSchedule : FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +78,11 @@ class ListActivity : AppCompatActivity() {
 
     private fun setFabClick() {
         //TODO 9 : Create AddCourseActivity to set new course schedule
+        fabAddSchedule = findViewById(R.id.fab)
+        fabAddSchedule.setOnClickListener {
+            val addIntent = Intent(this, AddActivity::class.java)
+            startActivity(addIntent)
+        }
     }
 
     //TODO 14 : Fixing bug : sort menu not show and course not deleted when list is swiped

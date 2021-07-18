@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CourseSchedule">
+        <activity android:name=".ui.add.AddActivity"></activity>
         <activity
             android:name=".ui.detail.DetailActivity"
             android:label="@string/detail"
@@ -26,7 +27,6 @@
             android:label="@string/title_activity_list"
             android:parentActivityName=".ui.home.HomeActivity"
             android:theme="@style/Theme.CourseSchedule.NoActionBar" />
-
         <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
