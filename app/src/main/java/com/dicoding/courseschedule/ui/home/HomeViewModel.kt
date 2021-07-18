@@ -1,5 +1,6 @@
 package com.dicoding.courseschedule.ui.home
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.courseschedule.data.Course
@@ -16,9 +17,5 @@ class HomeViewModel(private val repository: DataRepository): ViewModel() {
 
     fun setQueryType(queryType: QueryType) {
         _queryType.value = queryType
-    }
-
-    fun getTodaySchedule() : List<Course>{
-        return repository.getTodaySchedule()
     }
 }

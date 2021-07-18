@@ -7,10 +7,13 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
+import com.dicoding.courseschedule.data.DataRepository
 import com.dicoding.courseschedule.ui.setting.SettingsActivity
 import com.dicoding.courseschedule.util.DayName
+import com.dicoding.courseschedule.util.FunctionLibrary
 import com.dicoding.courseschedule.util.QueryType
 import com.dicoding.courseschedule.util.timeDifference
 
@@ -26,7 +29,21 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         supportActionBar?.title = resources.getString(R.string.today_schedule)
 
+        // ViewModel
 
+
+        // get data from repository
+        val repository : DataRepository? = DataRepository.getInstance(applicationContext)
+        if (repository != null){
+            viewModel = HomeViewModel(repository)
+            val course = repository.getNearestSchedule(queryType)
+            course.observe(this, {
+                showTodaySchedule(course = it)
+            })
+        }
+        else{
+            FunctionLibrary.showToast(applicationContext, "Fetching data encountered error")
+        }
     }
 
     private fun showTodaySchedule(course: Course?) {
@@ -37,7 +54,11 @@ class HomeActivity : AppCompatActivity() {
             val remainingTime = timeDifference(day, startTime)
 
             val cardHome = findViewById<CardHomeView>(R.id.view_home)
-
+            // bind data
+            cardHome.setCourseName(course.courseName)
+            cardHome.setTime(time)
+            cardHome.setRemainingTime("($remainingTime)")
+            cardHome.setLecturer(course.lecturer)
         }
 
         findViewById<TextView>(R.id.tv_empty_home).visibility =
