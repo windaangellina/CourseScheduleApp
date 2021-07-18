@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 //TODO 3 : Define room database class
+@Database(entities = [Course::class], version = 1)
 abstract class CourseDatabase : RoomDatabase() {
 
     abstract fun courseDao(): CourseDao

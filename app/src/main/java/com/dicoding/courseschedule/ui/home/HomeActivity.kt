@@ -26,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         supportActionBar?.title = resources.getString(R.string.today_schedule)
 
+
     }
 
     private fun showTodaySchedule(course: Course?) {
