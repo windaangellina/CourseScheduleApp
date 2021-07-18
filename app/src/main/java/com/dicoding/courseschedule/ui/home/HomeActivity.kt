@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
 import com.dicoding.courseschedule.data.DataRepository
+import com.dicoding.courseschedule.ui.list.ListActivity
 import com.dicoding.courseschedule.ui.setting.SettingsActivity
 import com.dicoding.courseschedule.util.DayName
 import com.dicoding.courseschedule.util.FunctionLibrary
@@ -28,9 +29,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         supportActionBar?.title = resources.getString(R.string.today_schedule)
-
-        // ViewModel
-
 
         // get data from repository
         val repository : DataRepository? = DataRepository.getInstance(applicationContext)
@@ -84,7 +82,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val intent: Intent = when (item.itemId) {
-
+            R.id.action_list -> Intent(this, ListActivity::class.java)
             R.id.action_settings -> Intent(this, SettingsActivity::class.java)
             else -> null
         } ?: return super.onOptionsItemSelected(item)
