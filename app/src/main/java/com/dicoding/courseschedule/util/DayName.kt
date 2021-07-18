@@ -13,7 +13,7 @@ enum class DayName(val value: String) {
     SUNDAY("Sunday");
 
     companion object {
-        fun getByNumber(dayNumber: Int) = when (dayNumber) {
+        fun getByNumber(dayNumber: Int) : String = when (dayNumber) {
             Calendar.MONDAY -> MONDAY.value
             Calendar.TUESDAY -> TUESDAY.value
             Calendar.WEDNESDAY -> WEDNESDAY.value
@@ -22,6 +22,31 @@ enum class DayName(val value: String) {
             Calendar.SATURDAY -> SATURDAY.value
             Calendar.SUNDAY -> SUNDAY.value
             else -> MONDAY.value
+        }
+
+        fun getByDayName(dayName : String) : Int = when(dayName) {
+            MONDAY.value -> {
+                Calendar.MONDAY
+            }
+            TUESDAY.value -> {
+                Calendar.TUESDAY
+            }
+            WEDNESDAY.value -> {
+                Calendar.WEDNESDAY
+            }
+            THURSDAY.value -> {
+                Calendar.THURSDAY
+            }
+            FRIDAY.value -> {
+                Calendar.FRIDAY
+            }
+            SATURDAY.value -> {
+                Calendar.SATURDAY
+            }
+            SUNDAY.value -> {
+                Calendar.SUNDAY
+            }
+            else -> Calendar.MONDAY
         }
     }
 }

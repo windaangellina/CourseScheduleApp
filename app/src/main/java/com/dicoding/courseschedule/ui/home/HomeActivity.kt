@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
 import com.dicoding.courseschedule.data.DataRepository
+import com.dicoding.courseschedule.ui.add.AddActivity
 import com.dicoding.courseschedule.ui.list.ListActivity
 import com.dicoding.courseschedule.ui.setting.SettingsActivity
 import com.dicoding.courseschedule.util.DayName
@@ -57,6 +58,7 @@ class HomeActivity : AppCompatActivity() {
             cardHome.setTime(time)
             cardHome.setRemainingTime("($remainingTime)")
             cardHome.setLecturer(course.lecturer)
+            cardHome.setNote(course.note)
         }
 
         findViewById<TextView>(R.id.tv_empty_home).visibility =
@@ -84,6 +86,7 @@ class HomeActivity : AppCompatActivity() {
         val intent: Intent = when (item.itemId) {
             R.id.action_list -> Intent(this, ListActivity::class.java)
             R.id.action_settings -> Intent(this, SettingsActivity::class.java)
+            R.id.action_add -> Intent(this, AddActivity::class.java)
             else -> null
         } ?: return super.onOptionsItemSelected(item)
 
