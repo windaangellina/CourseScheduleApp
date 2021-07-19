@@ -51,11 +51,24 @@ class AddActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListener {
         return super.onCreateOptionsMenu(menu)
     }
 
+    private fun getByDayName(dayName : String) : Int {
+        return when(dayName) {
+            "Monday" -> 1
+            "Tuesday" -> 2
+            "Wednesday" -> 3
+            "Thursday" -> 4
+            "Friday" -> 5
+            "Saturday" -> 6
+            "Sunday" -> 7
+            else -> 1
+        }
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.action_insert -> {
                 val day = binding.spinnerDay.selectedItem.toString()
-                val dayNumber = DayName.getByDayName(dayName = day)
+                val dayNumber = getByDayName(dayName = day)
                 FunctionLibrary.showToast(applicationContext, "chosen day : $day - $dayNumber")
                 addCourseViewModel.insertCourse(
                     binding.addEdCourseName.text.toString(),

@@ -19,8 +19,10 @@ import com.dicoding.courseschedule.paging.CourseViewHolder
 import com.dicoding.courseschedule.ui.add.AddActivity
 import com.dicoding.courseschedule.ui.detail.DetailActivity
 import com.dicoding.courseschedule.ui.setting.SettingsActivity
+import com.dicoding.courseschedule.util.FunctionLibrary
 import com.dicoding.courseschedule.util.SortType
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.util.*
 
 class ListActivity : AppCompatActivity() {
 
@@ -46,6 +48,13 @@ class ListActivity : AppCompatActivity() {
         setUpRecycler()
         initAction()
         updateList()
+
+        var dayOfWeek = GregorianCalendar().get(Calendar.DAY_OF_WEEK) - 1
+        if (dayOfWeek == 0){
+            dayOfWeek = 7
+        }
+
+        FunctionLibrary.showToast(applicationContext, "day of week : ${dayOfWeek}")
     }
 
     private fun setUpRecycler() {
@@ -143,7 +152,7 @@ class ListActivity : AppCompatActivity() {
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val course = (viewHolder as CourseViewHolder).getCourse()
-
+            viewModel.delete(course)
         }
     }
 }

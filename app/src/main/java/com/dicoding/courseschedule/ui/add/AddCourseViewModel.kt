@@ -28,7 +28,7 @@ class AddCourseViewModel(private val repository: DataRepository) : ViewModel() {
 
         val course = Course(
             courseName = courseName,
-            day = day + 1,
+            day = day,
             startTime = startTime,
             endTime = endTime,
             lecturer = lecturer,

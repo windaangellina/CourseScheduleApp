@@ -37,8 +37,12 @@ class DataRepository(private val dao: CourseDao) {
     }
 
     fun getTodaySchedule() : List<Course> {
-        val dayInt = Calendar.DAY_OF_WEEK
-        return dao.getTodaySchedule(dayInt)
+        //val dayInt = Calendar.DAY_OF_WEEK
+        var dayOfWeek = GregorianCalendar().get(Calendar.DAY_OF_WEEK) - 1
+        if (dayOfWeek == 0){
+            dayOfWeek = 7
+        }
+        return dao.getTodaySchedule(dayOfWeek)
     }
 
     fun insert(course: Course) = executeThread {
