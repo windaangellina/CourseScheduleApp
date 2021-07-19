@@ -51,12 +51,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             FunctionLibrary.showToast(requireContext(), "notif : $newValue")
             if (newValue == true){
                 val repo = DataRepository.getInstance(requireContext())
-                GlobalScope.launch {
-                    if (repo != null) {
-                        dailyReminder.showNotification(requireContext(), repo.getTodaySchedule())
-                    }
-                }
-                //dailyReminder.setDailyReminder(requireContext())
+//                GlobalScope.launch {
+//                    if (repo != null) {
+//                        dailyReminder.showNotification(requireContext(), repo.getTodaySchedule())
+//                    }
+//                }
+                dailyReminder.setDailyReminder(requireContext())
             }
             else{
                 dailyReminder.cancelAlarm(requireContext())
