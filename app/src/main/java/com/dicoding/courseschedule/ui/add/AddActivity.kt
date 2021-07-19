@@ -64,7 +64,6 @@ class AddActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListener {
             R.id.action_insert -> {
                 val day = binding.spinnerDay.selectedItem.toString()
                 val dayNumber = getByDayName(dayName = day)
-                FunctionLibrary.showToast(applicationContext, "chosen day : $day - $dayNumber")
                 addCourseViewModel.insertCourse(
                     binding.addEdCourseName.text.toString(),
                     dayNumber,

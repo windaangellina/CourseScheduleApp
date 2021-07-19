@@ -48,13 +48,6 @@ class ListActivity : AppCompatActivity() {
         setUpRecycler()
         initAction()
         updateList()
-
-        var dayOfWeek = GregorianCalendar().get(Calendar.DAY_OF_WEEK) - 1
-        if (dayOfWeek == 0){
-            dayOfWeek = 7
-        }
-
-        FunctionLibrary.showToast(applicationContext, "day of week : ${dayOfWeek}")
     }
 
     private fun setUpRecycler() {
@@ -122,6 +115,7 @@ class ListActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_sort -> {
+                showSortMenu()
                 true
             }
             R.id.action_settings -> {
