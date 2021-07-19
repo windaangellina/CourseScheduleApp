@@ -43,6 +43,7 @@ class AddActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListener {
         addCourseViewModel = AddCourseViewModel(
             DataRepository.getInstance(applicationContext)!!
         )
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -65,7 +66,6 @@ class AddActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListener {
                     binding.addEdNote.text.toString()
                 )
                 finish()
-
                 addCourseViewModel.saved.observe(this, { event ->
                     event.getContentIfNotHandled().let { isSaved ->
                         if (isSaved == true){
@@ -76,6 +76,7 @@ class AddActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListener {
                     }
                 })
             }
+            android.R.id.home -> finish() //default back button
         }
         return super.onOptionsItemSelected(item)
     }
