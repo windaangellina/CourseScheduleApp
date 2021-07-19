@@ -4,7 +4,6 @@ import android.app.*
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
@@ -12,8 +11,6 @@ import androidx.core.content.ContextCompat
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
 import com.dicoding.courseschedule.data.DataRepository
-import com.dicoding.courseschedule.ui.home.HomeActivity
-import com.dicoding.courseschedule.ui.setting.SettingsActivity
 import com.dicoding.courseschedule.util.FunctionLibrary
 import com.dicoding.courseschedule.util.executeThread
 import java.util.*

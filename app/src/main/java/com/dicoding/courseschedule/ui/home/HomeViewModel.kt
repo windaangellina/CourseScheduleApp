@@ -1,9 +1,7 @@
 package com.dicoding.courseschedule.ui.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.courseschedule.data.Course
 import com.dicoding.courseschedule.data.DataRepository
 import com.dicoding.courseschedule.util.QueryType
 

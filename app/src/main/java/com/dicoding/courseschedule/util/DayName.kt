@@ -1,7 +1,5 @@
 package com.dicoding.courseschedule.util
 
-import java.util.*
-
 enum class DayName(val value: String) {
 
     MONDAY("Monday"),

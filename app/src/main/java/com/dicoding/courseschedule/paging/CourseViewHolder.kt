@@ -5,8 +5,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
-import com.dicoding.courseschedule.databinding.ItemCourseBinding
-import com.dicoding.courseschedule.util.DayName
 import com.dicoding.courseschedule.util.DayName.Companion.getByNumber
 
 class CourseViewHolder(view: View): RecyclerView.ViewHolder(view) {

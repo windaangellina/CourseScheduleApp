@@ -6,13 +6,9 @@ import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
 import com.dicoding.courseschedule.R
-import com.dicoding.courseschedule.data.DataRepository
 import com.dicoding.courseschedule.notification.DailyReminder
 import com.dicoding.courseschedule.util.FunctionLibrary
 import com.dicoding.courseschedule.util.NightMode
-import com.dicoding.courseschedule.util.QueryType
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

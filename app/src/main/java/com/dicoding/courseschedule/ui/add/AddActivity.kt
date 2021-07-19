@@ -1,18 +1,13 @@
 package com.dicoding.courseschedule.ui.add
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.format.DateUtils
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
-import androidx.room.util.StringUtil
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.DataRepository
 import com.dicoding.courseschedule.databinding.ActivityAddBinding
-import com.dicoding.courseschedule.util.DayName
 import com.dicoding.courseschedule.util.FunctionLibrary
 import com.dicoding.courseschedule.util.TimePickerFragment
 
