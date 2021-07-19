@@ -50,12 +50,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         prefNotification?.setOnPreferenceChangeListener { preference, newValue ->
             FunctionLibrary.showToast(requireContext(), "notif : $newValue")
             if (newValue == true){
-                val repo = DataRepository.getInstance(requireContext())
-//                GlobalScope.launch {
-//                    if (repo != null) {
-//                        dailyReminder.showNotification(requireContext(), repo.getTodaySchedule())
-//                    }
-//                }
                 dailyReminder.setDailyReminder(requireContext())
             }
             else{
